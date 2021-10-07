@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Alfonso's Books</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <h1>Alfonso's Books</h1>
+    <hr>
+    <h2>Update Book</h2>
+    <form action="#" th:action="@{/saveBook}" th:object="${book}" method="POST">
+        <input type="hidden" th:field="*{id}">
+        <input class="form-control mb-4 col-4" placeholder="Book Title" th:field="*{title}" type="text">
+        <input class="form-control mb-4 col-4" placeholder="Book Author" th:field="*{author}" type="text">
+        <button class="btn btn-info col-2" type="submit">Update Book</button>
+    </form>
+    <hr>
+    <a th:href="@{/}">Back to Book List</a>
+</div>
+</body>
+</html>
