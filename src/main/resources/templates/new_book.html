@@ -22,8 +22,9 @@
             <input id="book-title"
                    class="form-control"
                    placeholder="Enter Title" th:field="*{title}"
-                   type="text"
-            >
+                   type="text">
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
         </div>
         <div class="mb-3">
             <label for="book-author" class="form-label">Book Author</label>
@@ -31,6 +32,8 @@
                    class="form-control"
                    placeholder="Enter Author Name" th:field="*{author}"
                    type="text">
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
         </div>
         <button class="btn btn-info" type="submit">Save Book</button>
     </form>

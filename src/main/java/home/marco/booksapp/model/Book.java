@@ -1,6 +1,11 @@
 package home.marco.booksapp.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "books")
@@ -10,8 +15,10 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "Title cannot be empty")
     private String title;
 
+    @NotEmpty(message = "Author cannot be empty")
     private String author;
 
     public Long getId() {

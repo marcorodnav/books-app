@@ -15,12 +15,12 @@
     <h1>Alfonso's Books</h1>
     <hr>
     <h2>Update Book</h2>
-    <form action="#" th:action="@{/saveBook}" th:object="${book}" method="POST">
-        <div class="input-group mb-3">
-            <span class="input-group-text">ID</span>
-            <input type="text" class="form-control"
-                   aria-label="ID is not modifiable"
-                   disabled th:field="*{id}">
+    <form action="#" th:action="@{/updateBook}" th:object="${book}" method="POST">
+        <div class="mb-3">
+            <label for="book-id" class="form-label">ID</label>
+            <input class="form-control"
+                   id="book-id" th:readonly="true"
+                   th:field="*{id}" type="text">
         </div>
         <div class="mb-3">
             <label for="book-title" class="form-label">Book Title</label>
@@ -28,6 +28,8 @@
                    class="form-control"
                    placeholder="Update Title" th:field="*{title}"
                    type="text">
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
         </div>
         <div class="mb-3">
             <label for="book-author" class="form-label">Book Author</label>
@@ -35,6 +37,8 @@
                    class="form-control"
                    placeholder="Update Book Author Name" th:field="*{author}"
                    type="text">
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
         </div>
         <button class="btn btn-info" type="submit">Update Book</button>
     </form>

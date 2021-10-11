@@ -4,7 +4,13 @@ import home.marco.booksapp.model.Book;
 import home.marco.booksapp.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class BookController {
@@ -30,9 +36,11 @@ public class BookController {
     }
 
     @PostMapping(value = "/saveBook")
-    public String saveBook(@ModelAttribute("book") Book book) {
+    public String saveBook(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "new_book";
+        }
         bookService.saveBook(book);
-
         return "redirect:/";
     }
 
@@ -42,6 +50,15 @@ public class BookController {
         model.addAttribute("book", book);
 
         return "update_book";
+    }
+
+    @PostMapping(value = "/updateBook")
+    public String updateBook(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "update_book";
+        }
+        bookService.saveBook(book);
+        return "redirect:/";
     }
 
     @GetMapping(value = "/deleteBook/{id}")
