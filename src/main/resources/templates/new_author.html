@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Alfonso's Books</title>
+    <link rel="shortcut icon" type="image/ico" th:href="@{/img/favicon.ico}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-4">
+    <h1>Alfonso's Books</h1>
+    <hr>
+    <h2>Save Author</h2>
+    <form action="#" th:action="@{/saveAuthor}" th:object="${author}" method="POST">
+        <div class="mb-3">
+            <label for="author-firstName" class="form-label">First Name</label>
+            <input type="text"
+                   id="author-firstName"
+                   class="form-control"
+                   placeholder="Enter First Name" th:field="*{firstName}">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="author-lastName" class="form-label">Last Name</label>
+            <input type="text"
+                   id="author-lastName"
+                   class="form-control"
+                   placeholder="Enter Last Name" th:field="*{lastName}">
+            <hr>
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+        </div>
+        <button class="btn btn-info" type="submit">Save Author</button>
+    </form>
+    <hr>
+    <a th:href="@{/showNewBookForm}">Back to New Book Form</a>
+</div>
+</body>
+</html>

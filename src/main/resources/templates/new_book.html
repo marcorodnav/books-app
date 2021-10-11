@@ -16,25 +16,30 @@
     <h1>Alfonso's Books</h1>
     <hr>
     <h2>Save Book</h2>
-    <form action="#" th:action="@{/saveBook}" th:object="${book}" method="POST">
+    <form action="#" th:action="@{/saveBook}" th:object="${bookForm}" method="POST">
         <div class="mb-3">
             <label for="book-title" class="form-label">Book Title</label>
             <input id="book-title"
                    class="form-control"
-                   placeholder="Enter Title" th:field="*{title}"
+                   placeholder="Enter Title" th:field="*{book.title}"
                    type="text">
             <div class="alert alert-warning"
-                 th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                 th:if="${#fields.hasErrors('book.title')}" th:errors="*{book.title}"></div>
         </div>
-        <div class="mb-3">
-            <label for="book-author" class="form-label">Book Author</label>
-            <input id="book-author"
-                   class="form-control"
-                   placeholder="Enter Author Name" th:field="*{author}"
-                   type="text">
-            <div class="alert alert-warning"
-                 th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+        <div class="input-group mb-3">
+            <a href="#" th:href="@{/authors/showNewAuthorForm(redirectPage='new_book')}" class="btn btn-outline-secondary">New Author</a>
+            <select th:field="*{author.id}" class="form-select"
+                    aria-label="Dropdown for existing authors">
+                <option value="">Select...</option>
+                <option th:each="existingAuthor : ${existingAuthors}"
+                        th:value="${existingAuthor.id}"
+                       th:utext="${existingAuthor.fullName}">
+                </option>
+            </select>
         </div>
+        <div class="alert alert-warning"
+             th:if="${#fields.hasErrors('author.id')}" th:errors="*{author.id}"></div>
+
         <button class="btn btn-info" type="submit">Save Book</button>
     </form>
     <hr>

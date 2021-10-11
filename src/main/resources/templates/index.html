@@ -37,7 +37,7 @@
                 <tr th:each="book : ${booksList}">
                     <th scope="row" th:text="${book.id}"></th>
                     <td th:text="${book.title}"></td>
-                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.author.fullName}"></td>
                     <td>
                         <div class="d-grid gap-2 d-md-block">
                             <a class="btn btn-primary" th:href="@{/showUpdateBookForm/{id}(id=${book.id})}">Update</a>
