@@ -2,7 +2,7 @@ package home.marco.booksapp.controller;
 
 import home.marco.booksapp.model.Author;
 import home.marco.booksapp.model.Book;
-import home.marco.booksapp.model.dto.BookForm;
+import home.marco.booksapp.controller.dto.BookForm;
 import home.marco.booksapp.service.AuthorService;
 import home.marco.booksapp.service.BookService;
 import org.springframework.stereotype.Controller;

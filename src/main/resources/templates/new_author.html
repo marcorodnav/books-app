@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -11,9 +11,14 @@
           crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Alfonso's Books</span>
+        <span class="navbar-item" sec:authentication="principal.username">User</span>
+        <a class="btn btn-outline-primary" th:href="@{/registration/logout}" sec:authorize="isAuthenticated()">Logout</a>
+    </div>
+</nav>
 <div class="container my-4">
-    <h1>Alfonso's Books</h1>
-    <hr>
     <h2>Save Author</h2>
     <form action="#" th:action="@{/saveAuthor}" th:object="${author}" method="POST">
         <div class="mb-3">

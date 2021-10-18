@@ -1,4 +1,4 @@
-package home.marco.booksapp.model.dto;
+package home.marco.booksapp.controller.dto;
 
 import home.marco.booksapp.model.Author;
 import home.marco.booksapp.model.Book;
