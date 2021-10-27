@@ -1,4 +1,4 @@
-package home.marco.booksapp;
+package home.marco.booksapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
