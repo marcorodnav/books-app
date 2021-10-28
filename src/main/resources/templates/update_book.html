@@ -14,7 +14,7 @@
 <body>
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Alfonso's Books</span>
+        <a class="navbar-brand mb-0 h1" th:href="@{/}">Alfonso's Books</a>
         <span class="navbar-item" sec:authentication="principal.username">User</span>
         <a class="btn btn-outline-primary" th:href="@{/registration/logout}" sec:authorize="isAuthenticated()">Logout</a>
     </div>
