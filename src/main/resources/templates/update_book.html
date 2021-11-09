@@ -38,7 +38,7 @@
                  th:if="${#fields.hasErrors('book.title')}" th:errors="*{book.title}"></div>
         </div>
         <div class="input-group mb-3">
-            <a href="#" th:href="@{/authors/showNewAuthorForm(redirectPage='update_book')}" class="btn btn-outline-secondary">New Author</a>
+            <a href="#" th:href="@{/authors/showNewAuthorForm(redirectPage='showUpdateBookForm',bookId=*{book.id})}" class="btn btn-outline-secondary">New Author</a>
             <select th:field="*{author.id}" class="form-select"
                     aria-label="Dropdown for existing authors">
                 <option value="">Select...</option>

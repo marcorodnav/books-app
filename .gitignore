@@ -33,3 +33,4 @@ build/
 
 ### Other ###
 .metals/
+logs/

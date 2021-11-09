@@ -20,7 +20,7 @@
 </nav>
 <div class="container my-4">
     <h2>Save Author</h2>
-    <form action="#" th:action="@{/saveAuthor}" th:object="${author}" method="POST">
+    <form action="#" th:action="@{/authors/saveAuthor(redirectPage=${redirectPage}, bookId=${bookId})}" th:object="${author}" method="POST">
         <div class="mb-3">
             <label for="author-firstName" class="form-label">First Name</label>
             <input type="text"
